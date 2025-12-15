@@ -1,10 +1,10 @@
 version: '3.8'
 services:
   postgres:
-    image: postgres:15
+    image: postgres:latest
     container_name: streamingflixdb
     environment:
-      POSTGRES_DB: jdbc:postgresql://db:5432/streamingflixdb
+      POSTGRES_DB: streamingflixdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
