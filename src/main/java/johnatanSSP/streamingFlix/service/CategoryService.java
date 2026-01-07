@@ -19,7 +19,7 @@ public class CategoryService {
        return Repository.findAll();
     }
 
-    public Category saveCategory(Category category){
+    public Category save(Category category){
         return Repository.save(category);
     }
 
