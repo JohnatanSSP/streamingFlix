@@ -21,7 +21,7 @@ public class StreamingController {
     private final StreamingService Service;
 
     @GetMapping()
-    public ResponseEntity<List<StreamingResponse>> getAllStreaming() {
+    public ResponseEntity<List<StreamingResponse>> getAll() {
         List<Streaming> streamings = Service.findAll();
         List<StreamingResponse> list = streamings
                 .stream()
@@ -38,14 +38,14 @@ public class StreamingController {
     }
 
     @GetMapping("/{id}")
-    public StreamingResponse getStreamingById(@PathVariable Long id) {
+    public StreamingResponse getById(@PathVariable Long id) {
         return Service.findById(id)
                 .map(streaming -> ResponseEntity.ok(StreamingMapper.ToStreamingResponse(streaming)))
                 .orElse(ResponseEntity.notFound().build()).getBody();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteStreamingById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         Service.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
