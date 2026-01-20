@@ -32,4 +32,13 @@ public class MovieController {
                 .toList();
         return ResponseEntity.ok(response);
     }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<MovieResponse> findById(@PathVariable Long id) {
+        return Service.findById(id)
+                .map(MovieMapper::toMovieResponse)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
