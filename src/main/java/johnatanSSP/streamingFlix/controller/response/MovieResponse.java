@@ -1,5 +1,6 @@
 package johnatanSSP.streamingFlix.controller.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 
 import java.time.LocalDate;
@@ -13,7 +14,10 @@ public record MovieResponse(
         Integer yearMovie,
         String director,
         double rating,
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
         LocalDate releaseDate,
+        
         List<CategoryResponse> categories,
         List<StreamingResponse> streamings
 ) {
