@@ -6,7 +6,6 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class Movie {
     private String description;
 
     @Column(name = "year_movie")
-    private String yearMovie;
+    private Integer yearMovie;
 
     private String director;
 
